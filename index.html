@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fighting Game</title>
+    <script src="index.js" type="module" defer></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      body {
+        width: 100vw;
+        max-width: 1024px;
+        height: 100vh;
+        margin: 0 auto;
+      }
+
+      .game-container {
+        position: relative;
+
+        width: 100%;
+        height: 0;
+        margin: 0 auto;
+        padding-top: calc(9 / 16 * 100%);
+
+        overflow: hidden;
+      }
+
+      canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+
+        background: black;
+      }
+      .ui-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 50;
+
+        width: 100%;
+      }
+
+      .ui-layout {
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .healthbar {
+        position: relative;
+
+        height: 52px;
+        width: 45%;
+
+        border: 1px solid green;
+      }
+
+      .health {
+        position: absolute;
+        left: 0;
+
+        height: 100%;
+        width: 100%;
+
+        background-color: green;
+      }
+
+      .healthbar:first-child > .health {
+        left: unset;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="ui-container">
+        <div class="ui-layout">
+          <div class="healthbar">
+            <div class="health" data-healthbar-player></div>
+          </div>
+          <div class="healthbar">
+            <div class="health" data-healthbar-enemy></div>
+          </div>
+        </div>
+      </div>
+
+      <canvas></canvas>
+    </div>
+  </body>
+</html>
